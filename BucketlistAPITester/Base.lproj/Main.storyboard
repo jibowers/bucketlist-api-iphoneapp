@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2411" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Get-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="Get" customClass="GetViewController" customModule="BucketlistAPITester" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -16,38 +18,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="221" y="279" width="157.5" height="41.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="203" y="329" width="194.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-a3-6YX">
+                                <rect key="frame" x="0.0" y="30" width="600" height="570"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbi-I6-tUG" userLabel="send request">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                        <state key="normal" title="Send GET request"/>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="iVJ-Q9-BeM"/>
+                                        </connections>
+                                    </button>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxA-Ds-qN7">
+                                        <rect key="frame" x="0.0" y="30" width="600" height="540"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="-- data will be here --" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n22-6F-lSV">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                                <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1000" id="whN-Zs-nYg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="n22-6F-lSV" secondAttribute="trailing" id="8hA-Kd-pc6"/>
+                                            <constraint firstAttribute="bottom" secondItem="n22-6F-lSV" secondAttribute="bottom" id="HRL-lT-jcX"/>
+                                            <constraint firstItem="n22-6F-lSV" firstAttribute="leading" secondItem="XxA-Ds-qN7" secondAttribute="leading" id="X0l-it-z61"/>
+                                            <constraint firstItem="n22-6F-lSV" firstAttribute="top" secondItem="XxA-Ds-qN7" secondAttribute="top" id="cEP-TC-1ix"/>
+                                            <constraint firstItem="n22-6F-lSV" firstAttribute="centerX" secondItem="XxA-Ds-qN7" secondAttribute="centerX" id="giW-Au-6nX"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XxA-Ds-qN7" secondAttribute="trailing" id="TUP-aN-mun"/>
+                                    <constraint firstItem="XxA-Ds-qN7" firstAttribute="leading" secondItem="7lr-a3-6YX" secondAttribute="leading" id="dmo-1K-idD"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstAttribute="trailing" secondItem="7lr-a3-6YX" secondAttribute="trailing" id="2ca-fy-3G7"/>
+                            <constraint firstItem="7lr-a3-6YX" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="coU-fJ-jzd"/>
+                            <constraint firstItem="7lr-a3-6YX" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="30" id="eYp-bL-Iux"/>
+                            <constraint firstAttribute="bottom" secondItem="7lr-a3-6YX" secondAttribute="bottom" id="w97-Hv-EdP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Get" image="first" id="acW-dT-cKf" userLabel="Get"/>
+                    <connections>
+                        <outlet property="myButton" destination="Rbi-I6-tUG" id="O0I-86-18M"/>
+                        <outlet property="myTextView" destination="n22-6F-lSV" id="Ukr-th-Srk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Second-->
+        <!--Post-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" userLabel="Post" customClass="PostViewController" customModule="BucketlistAPITester" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -56,33 +86,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="195" y="279" width="209.5" height="41.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="192" y="329" width="215.5" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="What do you want to do?" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yc5-3n-8zx" userLabel="field">
+                                <rect key="frame" x="20" y="50" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8i-Rq-uwN" userLabel="button">
+                                <rect key="frame" x="20" y="100" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="n1j-wo-bor"/>
+                                </constraints>
+                                <state key="normal" title="Send POST request"/>
+                                <connections>
+                                    <action selector="postButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ehS-YA-0fh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsT-ft-LVh" userLabel="statusLabel">
+                                <rect key="frame" x="20" y="150" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="WsT-ft-LVh" firstAttribute="leading" secondItem="B8i-Rq-uwN" secondAttribute="leading" id="AkZ-sY-n8h"/>
+                            <constraint firstItem="WsT-ft-LVh" firstAttribute="top" secondItem="B8i-Rq-uwN" secondAttribute="bottom" constant="20" id="AyB-ce-pir"/>
+                            <constraint firstItem="yc5-3n-8zx" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" constant="50" id="HzV-BI-u26"/>
+                            <constraint firstAttribute="trailing" secondItem="WsT-ft-LVh" secondAttribute="trailing" constant="20" id="R45-i7-qN4"/>
+                            <constraint firstItem="B8i-Rq-uwN" firstAttribute="top" secondItem="yc5-3n-8zx" secondAttribute="bottom" constant="20" id="XR2-FM-HGi"/>
+                            <constraint firstItem="B8i-Rq-uwN" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="dF0-Fi-edM"/>
+                            <constraint firstItem="B8i-Rq-uwN" firstAttribute="leading" secondItem="yc5-3n-8zx" secondAttribute="leading" id="eXL-On-W0X"/>
+                            <constraint firstItem="yc5-3n-8zx" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="urz-e2-Dcc"/>
+                            <constraint firstAttribute="trailing" secondItem="yc5-3n-8zx" secondAttribute="trailing" constant="20" id="xbw-8P-UwO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="second" id="cPa-gy-q4n" userLabel="Post"/>
+                    <connections>
+                        <outlet property="myInputField" destination="yc5-3n-8zx" id="6rR-qo-FWf"/>
+                        <outlet property="statusLabel" destination="WsT-ft-LVh" id="TQa-uA-0gF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="716" y="356"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
