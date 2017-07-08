@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,49 +20,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-a3-6YX">
-                                <rect key="frame" x="0.0" y="30" width="600" height="570"/>
+                                <rect key="frame" x="20" y="30" width="560" height="515"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbi-I6-tUG" userLabel="send request">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <state key="normal" title="Send GET request"/>
                                         <connections>
                                             <action selector="sendButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="iVJ-Q9-BeM"/>
                                         </connections>
                                     </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxA-Ds-qN7">
-                                        <rect key="frame" x="0.0" y="30" width="600" height="540"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="-- data will be here --" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n22-6F-lSV">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
-                                                <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1000" id="whN-Zs-nYg"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="n22-6F-lSV" secondAttribute="trailing" id="8hA-Kd-pc6"/>
-                                            <constraint firstAttribute="bottom" secondItem="n22-6F-lSV" secondAttribute="bottom" id="HRL-lT-jcX"/>
-                                            <constraint firstItem="n22-6F-lSV" firstAttribute="leading" secondItem="XxA-Ds-qN7" secondAttribute="leading" id="X0l-it-z61"/>
-                                            <constraint firstItem="n22-6F-lSV" firstAttribute="top" secondItem="XxA-Ds-qN7" secondAttribute="top" id="cEP-TC-1ix"/>
-                                            <constraint firstItem="n22-6F-lSV" firstAttribute="centerX" secondItem="XxA-Ds-qN7" secondAttribute="centerX" id="giW-Au-6nX"/>
-                                        </constraints>
-                                    </scrollView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="-- data will be here --" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n22-6F-lSV">
+                                        <rect key="frame" x="0.0" y="30" width="560" height="485"/>
+                                        <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="XxA-Ds-qN7" secondAttribute="trailing" id="TUP-aN-mun"/>
-                                    <constraint firstItem="XxA-Ds-qN7" firstAttribute="leading" secondItem="7lr-a3-6YX" secondAttribute="leading" id="dmo-1K-idD"/>
+                                    <constraint firstItem="n22-6F-lSV" firstAttribute="leading" secondItem="7lr-a3-6YX" secondAttribute="leadingMargin" id="m4r-Fs-9Aq"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="n22-6F-lSV" secondAttribute="trailing" id="rph-SH-P2d"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7lr-a3-6YX" secondAttribute="trailing" id="2ca-fy-3G7"/>
-                            <constraint firstItem="7lr-a3-6YX" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="coU-fJ-jzd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7lr-a3-6YX" secondAttribute="trailing" id="2ca-fy-3G7"/>
+                            <constraint firstItem="7lr-a3-6YX" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="coU-fJ-jzd"/>
                             <constraint firstItem="7lr-a3-6YX" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="30" id="eYp-bL-Iux"/>
-                            <constraint firstAttribute="bottom" secondItem="7lr-a3-6YX" secondAttribute="bottom" id="w97-Hv-EdP"/>
+                            <constraint firstAttribute="baseline" secondItem="7lr-a3-6YX" secondAttribute="bottom" constant="55" id="w97-Hv-EdP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Get" image="first" id="acW-dT-cKf" userLabel="Get"/>
@@ -104,7 +90,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsT-ft-LVh" userLabel="statusLabel">
                                 <rect key="frame" x="20" y="150" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
